@@ -1,47 +1,55 @@
 <h1>Movielist</h1>
 
 <h3>Add movies to the list</h3>
+<div class="row">
+	<div class="col">
+		<ul>
+			{{#each burgers}}
+			{{#unless devoured}}
+			<li>
 
-<ul>
-	{{#each burgers}}
-	{{#if devoured}}
-	<li>
+				<form
+					method="post"
+					action="/api/burgers/{{id}}?_method=PUT"
+				>
+					<input
+						type="hidden"
+						name="_method"
+						value="PUT"
+					>
+					<textarea
+						type="text"
+						name="movie"
+					>{{burger_name}}</textarea>
+					<p>{{devoured}}</p>
 
-		<p>{{burger_name}}</p>
-		<p>{{devoured}}</p>
-	</li>
+					<button type="submit">Eat</button>
 
-	{{/if}}
-	{{/each}}
-</ul>
-<ul>
-	{{#each burgers}}
-	{{#unless devoured}}
-	<li>
+				</form>
+			</li>
 
-		<form
-			method="post"
-			action="/api/burgers/{{id}}?_method=PUT"
-		>
-			<input
-				type="hidden"
-				name="_method"
-				value="PUT"
-			>
-			<textarea
-				type="text"
-				name="movie"
-			>{{burger_name}}</textarea>
-			<p>{{devoured}}</p>
+			{{/unless}}
+			{{/each}}
+		</ul>
+	</div>
+	<div class="col">
+		<ul>
+			{{#each burgers}}
+			{{#if devoured}}
+			<li>
 
-			<button type="submit">Eat</button>
+				<p>{{burger_name}}</p>
+				<p>{{devoured}}</p>
+			</li>
 
-		</form>
-	</li>
+			{{/if}}
+			{{/each}}
+		</ul>
+	</div>
 
-	{{/unless}}
-	{{/each}}
-</ul>
+</div>
+
+
 
 <form
 	action="/api/burgers"

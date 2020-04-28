@@ -9,13 +9,13 @@ router.get("/", async (req, res) => {
 
 router.post("/api/burgers", async (req, res) => {
   const new_burger = req.body.burger;
-  await burger.create(new_burger);
+  await burger.create(table, new_burger);
   res.render("index", await burger.all(table));
 });
 
 router.route("/api/burgers/:id").put(async (req, res) => {
   let id = req.params.id;
-  await burger.update(id);
+  await burger.update(table, id);
   res.render("index", await burger.all(table));
 });
 

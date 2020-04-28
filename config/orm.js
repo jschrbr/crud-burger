@@ -22,19 +22,19 @@ async function selectAll(table) {
   return { burgers: await query(qry) };
 }
 
-async function insert(burger) {
-  const qry = `INSERT INTO burgers SET ?`;
+async function insert(table, burger) {
+  const qry = `INSERT INTO ${table} SET ?`;
   return await query(qry, [{ burger_name: burger }]);
 }
-async function update(id) {
-  const qry = `UPDATE burgers SET ? WHERE id=${id}`;
+async function update(table, id) {
+  const qry = `UPDATE ${table} SET ? WHERE id=${id}`;
   return await query(qry, [{ devoured: true }]);
 }
 
 const orm = {
   all: async (table) => await selectAll(table),
-  create: async (burger) => await insert(burger),
-  update: async (id) => await update(id),
+  create: async (table, burger) => await insert(table, burger),
+  update: async (table, id) => await update(table, id),
 };
 
 module.exports = orm;
