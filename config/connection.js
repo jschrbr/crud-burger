@@ -1,3 +1,4 @@
+// //Below can be used with sequelize module
 // const Sequelize = require("sequelize");
 
 // const sequelize = new Sequelize("burgerDB", "root", "", {

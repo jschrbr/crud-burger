@@ -1,8 +1,35 @@
-<h1>Movielist</h1>
+<h1 align="center">CRUD burger</h1>
 
-<h3>Add movies to the list</h3>
+<div class="container center">
+	<form
+		action="/api/burgers"
+		method="POST"
+		id="order"
+	>
+		<div class="row">
+			<div class="input-field col s11">
+				<i class="material-icons prefix">menu</i>
+				<input
+					id="icon_prefix"
+					type="text"
+					name="burger"
+				>
+				<label for="icon_prefix">Burger Name</label>
+			</div>
+			<div class="col s1"> <a
+					href="#"
+					onclick="document.getElementById('order').submit()"
+					class="btn-floating btn-large waves-effect waves-light red"
+				><i class="material-icons">
+						add
+					</i>
+				</a>
+			</div>
+		</div>
+	</form>
+</div>
 <div class="row">
-	<div class="col">
+	<div class="col s6">
 		<ul>
 			{{#each burgers}}
 			{{#unless devoured}}
@@ -11,12 +38,11 @@
 				<form
 					method="post"
 					action="/api/burgers/{{id}}?_method=PUT"
-				>
 					<input
-						type="hidden"
-						name="_method"
-						value="PUT"
-					>
+					type="hidden"
+					name="_method"
+					value="PUT"
+				>
 					<textarea
 						type="text"
 						name="movie"
@@ -32,7 +58,7 @@
 			{{/each}}
 		</ul>
 	</div>
-	<div class="col">
+	<div class="col s6">
 		<ul>
 			{{#each burgers}}
 			{{#if devoured}}
@@ -48,17 +74,3 @@
 	</div>
 
 </div>
-
-
-
-<form
-	action="/api/burgers"
-	method="POST"
->
-	<textarea
-		type="text"
-		name="burger"
-	></textarea>
-
-	<button type="submit">Submit</button>
-</form>

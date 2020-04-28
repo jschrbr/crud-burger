@@ -9,13 +9,15 @@ router.get("/", async (req, res) => {
 
 router.post("/api/burgers", async (req, res) => {
   const new_burger = req.body.burger;
-  await burger.create(table, new_burger);
+  const set = [{ burger_name: new_burger }];
+  await burger.create(table, set);
   res.render("index", await burger.all(table));
 });
 
 router.route("/api/burgers/:id").put(async (req, res) => {
-  let id = req.params.id;
-  await burger.update(table, id);
+  const id = req.params.id;
+  const set = [{ devoured: true }];
+  await burger.update(table, set, id);
   res.render("index", await burger.all(table));
 });
 
