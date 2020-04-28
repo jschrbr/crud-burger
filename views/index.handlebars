@@ -1,0 +1,51 @@
+<h1>Movielist</h1>
+
+<h3>Add movies to the list</h3>
+
+<ul>
+	{{#each movies}}
+	<li>
+
+		<form
+			method="post"
+			action="/api/movies/{{id}}?_method=PUT"
+		>
+			<input
+				type="hidden"
+				name="_method"
+				value="PUT"
+			>
+			<textarea
+				type="text"
+				name="movie"
+			>{{movie}}</textarea>
+
+			<button type="submit">Update</button>
+		</form>
+		<form
+			method="post"
+			action="/api/movies/{{id}}?_method=DELETE"
+		>
+			<input
+				type="hidden"
+				name="_method"
+				value="DELETE"
+			>
+			<button type="submit">Remove</button>
+
+		</form>
+	</li>
+	{{/each}}
+</ul>
+
+<form
+	action="/api/movies"
+	method="POST"
+>
+	<textarea
+		type="text"
+		name="movie"
+	></textarea>
+
+	<button type="submit">Submit</button>
+</form>
