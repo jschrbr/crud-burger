@@ -1,28 +1,3 @@
-// //Below can be used with sequelize module
-// const Sequelize = require("sequelize");
-
-// const sequelize = new Sequelize("burgerDB", "root", "", {
-//   host: "localhost",
-//   dialect: "mysql",
-// });
-
-// const Burgers = sequelize.define(
-//   "burger",
-//   {
-//     burger_name: {
-//       type: Sequelize.STRING(20),
-//       allowNull: false,
-//     },
-//     devoured: {
-//       type: Sequelize.BOOLEAN,
-//       default: false,
-//     },
-//   },
-//   { timestamps: false }
-// );
-
-// module.exports = Burgers;
-
 const mysql = require("mysql");
 const util = require("util");
 

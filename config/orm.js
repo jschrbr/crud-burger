@@ -1,19 +1,3 @@
-// //Below can be used with sequelize module
-// var Burgers = require("../config/connection.js");
-
-// async function selectAll() {
-//   let burgers = await Burgers.findAll();
-//   burgers = burgers.map((burger) => burger.dataValues);
-//   return { burgers: burgers };
-// }
-
-// const orm = {
-//   all: async (table) => await selectAll(),
-//   create: async (table, set, id) => await Burgers.create(set[0]),
-//   update: async (table, set, id) =>
-//     await Burgers.update(set[0], { where: { id: id } }),
-// };
-
 var query = require("../config/connection.js");
 
 async function selectAll(table) {
