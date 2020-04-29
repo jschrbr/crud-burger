@@ -1,14 +1,17 @@
 const mysql = require("mysql");
 const util = require("util");
-const myRegex = /mysql:\/\/([\w\d]+):([\w\d]+)@([\w\d.-]+):([\w\d]+)\/([\w\d]+)/i;
-const [url, user, pass, host, port, db] = myRegex.exec(process.env.JAWSDB_URL);
+const myRegex = /mysql:\/\/([\w\d]+):([\w\d]+)@([\w\d.-]+):[\w\d]+\/([\w\d]+)/i;
+
+const [_, usr, pass, hst, db] = myRegex.exec(process.env.JAWSDB_URL);
+
+console.log(usr, pass, hst, db);
 
 const connection = mysql.createConnection({
-  host: host,
-  user: user,
+  host: hst,
+  user: usr,
   password: pass,
-  databse: db,
-  port: port,
+  database: db,
+  ssl: "Amazon RDS",
 });
 
 connection.connect(function (err) {
