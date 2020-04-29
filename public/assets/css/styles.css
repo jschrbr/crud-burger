@@ -1,0 +1,9 @@
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+img {
+  height: 120px;
+}
