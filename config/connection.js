@@ -9,7 +9,6 @@ const connection = mysql.createConnection({
   password: pass,
   databse: db,
   port: port,
-  ssl: "Amazon RDS",
 });
 
 connection.connect(function (err) {
